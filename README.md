@@ -18,6 +18,45 @@ Each agent type was programmed with specific actions and reactions, influenced b
 | Concert | Vegan       | Meat Eater  | Comments, "The salad is amazing!"      | Acknowledges but mentions not having salad.        |
 | Concert | Meat Eater  | Party       | Invites for burgers                    | Accepts the invitation with appreciation.          |
 
+## **BDI Agents**  
+Initialization: Going to target is the first desire, and will be the first intention.
+
+```gaml
+init{
+		do add_desire(goto_target);
+	}
+```
+
+Perception: An agent will know if it reaches the target.
+
+```
+perceive target: target_place in: view_distance{
+		focus id: place_in_range var:location;
+		ask myself{
+			do remove_intention(goto_target, false);
+			cur_place <- target_place;
+		}
+	}
+```
+
+Rule: If an agent reaches the target, it will have a new desire to change place.
+
+```
+rule belief: reach_place new_desire: change_place;
+```
+
+Plan: Carry out the intentions.
+
+```
+plan move intention: goto_target{
+		do goto target: target_place.location speed: 4.0;
+	}
+plan change intention: change_place {
+	...
+}
+```
+
+##### 
 ## **Installation & Execution**  
 1. Install **GAMA platform** from [GAMA Official Website](https://gama-platform.org/).  
 2. Clone this repository:  
