@@ -61,5 +61,5 @@ plan change intention: change_place {
 1. Install **GAMA platform** from [GAMA Official Website](https://gama-platform.org/).  
 2. Clone this repository:  
    ```sh
-   git clone [https://github.com/yourusername/DAIIA-Project.git](https://github.com/Hitoku08/KTH-ID2209-Course-Project.git)
+   git clone https://github.com/yourusername/DAIIA-Project.git
    cd Your-Project
